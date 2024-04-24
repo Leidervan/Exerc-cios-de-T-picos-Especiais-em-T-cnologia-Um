@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Comparação e Tabela 4x4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        #exemplos {
+            margin-bottom: 40px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid #333;
+        }
+
+        caption {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        td {
+            background-color: #fff;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Exemplos de Comparação entre Variáveis</h2>
+    <div id="exemplos"></div>
+
+    <h2>Tabela 4x4</h2>
+    <table border="2">
+        <caption>Tabela 4x4</caption>
+        <tbody id="tabela">
+            <!-- As células da tabela serão preenchidas pelo JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Função para adicionar texto ao elemento 'exemplos'
+        function adicionarTexto(texto) {
+            var divExemplos = document.getElementById('exemplos');
+            divExemplos.innerHTML += texto + "<br>";
+        }
+
+        // Exemplo 1: Verifica se a e b são iguais
+        var a = 1;
+        var b = 11;
+        if (a == b) {
+            adicionarTexto("As variáveis a e b são iguais");
+        }
+
+        // Exemplo 2: Verifica se a e b são diferentes
+        if (a != b) {
+            adicionarTexto("A e B são diferentes");
+        }
+
+        // Exemplo 3: Verifica se a e b são diferentes em valor e tipo
+        if (a !== b) {
+            adicionarTexto("A e B são diferentes em valor e tipo");
+        }
+
+        // Exemplo 4: Verifica se a e b são verdadeiros e do mesmo tipo
+        if (a === b) {
+            adicionarTexto("A e B são verdadeiros e do mesmo tipo");
+        }
+
+        // Exemplo 5: Verifica se a e b são diferentes em valor ou tipo
+        if (a !== b) {
+            adicionarTexto("A e B não são do mesmo tipo");
+        }
+
+        // Exemplo 6: Verifica se a é menor que b
+        if (a < b) {
+            adicionarTexto("A é menor que B");
+        }
+
+        // Exemplo 7: Verifica se a é maior que b
+        if (a > b) {
+            adicionarTexto("A é maior que B");
+        }
+
+        // Exemplo 8: Verifica se a é menor ou igual a b
+        if (a <= b) {
+            adicionarTexto("A é menor ou igual a B");
+        }
+
+        // Exemplo 9: Verifica se a é maior ou igual a b
+        if (a >= b) {
+            adicionarTexto("A é maior ou igual a B");
+        }
+
+        // Corrigindo o código para criar o array de números de 1 a 16
+        var numeros = [];
+        for (var i = 1; i <= 16; i++) {
+            numeros.push(i);
+        }
+
+        // Obtém o elemento da tabela pelo ID
+        var tabela = document.getElementById('tabela');
+
+        // Loop para criar as linhas
+        for (var i = 0; i < 4; i++) {
+            // Cria uma nova linha na tabela
+            var linha = tabela.insertRow();
+
+            // Loop para criar as células em cada linha
+            for (var j = 0; j < 4; j++) {
+                // Cria uma nova célula na linha
+                var cell = linha.insertCell();
+
+                // Calcula o índice no array para o valor de cada célula
+                var indice = i * 4 + j;
+
+                // Define o conteúdo da célula como o valor correspondente do array
+                cell.textContent = numeros[indice];
+
+                // Verifica se o valor é igual a 10
+                if (numeros[indice] === 10) {
+                    cell.style.fontWeight = "bold"; // Destaca o número 10
+                    cell.style.color = "red"; // Muda a cor do texto para vermelho
+                }
+            }
+        }
+    </script>
+</body>
+</html>
